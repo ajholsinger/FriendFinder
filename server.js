@@ -29,3 +29,12 @@ app.get("/survey", function(req, res) {
 app.listen(PORT, function() {
   console.log("Listening for " + PORT);
 });
+
+var questions = [{
+  question: "Donald Trump is the president of the United States of America",
+  answerChoices: ["1 Strongly Disagree", "2", "3 Neutral", "4", "5 Strongly Agree"]
+}, {
+  question: "Your favorite color is blue",
+  answerChoices: ["1 Strongly Disagree", "2", "3 Neutral", "4", "5 Strongly Agree"]
+}];
+
