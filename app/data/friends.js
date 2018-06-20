@@ -1,3 +1,5 @@
+var mysql = require("mysql");
+
 var questions = [{
   question: "Donald Trump is the president of the United States of America",
   answerChoices: ["1 Strongly Disagree", "2", "3 Neutral", "4", "5 Strongly Agree"]
@@ -6,10 +8,19 @@ var questions = [{
   answerChoices: ["1 Strongly Disagree", "2", "3 Neutral", "4", "5 Strongly Agree"]
 }];
 
-document.onload() {
-  console.log("She's a tickin");
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3000,
+  user: "root",
+  password: "fortnite123",
+  database: "survey_db"
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("connected as id " + connection.threadId);
   displayQuestions();
-}
+});
 
 function displayQuestions() {
   for (i = 11; i < questions.length; i++) {

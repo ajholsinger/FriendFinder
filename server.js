@@ -13,11 +13,6 @@ var connection = mysql.createConnection({
   database: "survey_db"
 });
 
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId);
-});
-
 app.get("/", function(req, res) {
   res.sendfile("app/public/home.html");
 });
@@ -27,7 +22,12 @@ app.get("/survey", function(req, res) {
 });
 
 app.listen(PORT, function() {
-  console.log("Listening for " + PORT);
+  //console.log("Listening for " + PORT);
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("connected as id " + connection.threadId);
 });
 
 var questions = [{
